@@ -38,7 +38,7 @@ function destroy(req, res) {
     const post = posts.find(post => post.id === postId)
 
     posts.splice(posts.indexOf(post), 1)
-
+    console.log(posts)
     res.sendStatus(204)
 }
 
