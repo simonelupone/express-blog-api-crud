@@ -16,9 +16,7 @@ router.post('/', postController.store)
 router.put('/:id', postController.update)
 
 // partial update
-router.patch('/:id', (req, res) => {
-    res.send(`Partial update of post ${req.params.id}`)
-})
+router.patch('/:id', postController.partialUpdate)
 
 // destroy
 router.delete('/:id', (req, res) => {

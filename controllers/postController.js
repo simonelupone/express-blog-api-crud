@@ -29,7 +29,9 @@ function update(req, res) {
     res.send(`Update post ${req.params.id}`)
 }
 
-function partialUpdate(req, res) {}
+function partialUpdate(req, res) {
+    res.send(`Partial update of post ${req.params.id}`)
+}
 
 function destroy(req, res) {}
 
