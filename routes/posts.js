@@ -41,4 +41,9 @@ router.patch('/:id', (req, res) => {
     res.send(`Partial update of post ${req.params.id}`)
 })
 
+// destroy
+router.delete('/:id', (req, res) => {
+    res.send(`Delete post ${req.params.id}`)
+})
+
 module.exports = router
