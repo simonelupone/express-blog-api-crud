@@ -5,6 +5,8 @@ const port = 3000
 const postsRouter = require('./routes/posts')
 app.use('/posts', postsRouter)
 
+app.use(express.static('public'))
+
 app.get('/', (req, res) => {
     res.send('Homepage')
 })
