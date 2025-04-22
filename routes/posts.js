@@ -31,4 +31,9 @@ router.post('/', (req, res) => {
     res.send('Create new post')
 })
 
+// update
+router.put('/:id', (req, res) => {
+    res.send(`Update post ${req.params.id}`)
+})
+
 module.exports = router
