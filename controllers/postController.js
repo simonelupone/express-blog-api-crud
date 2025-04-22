@@ -33,6 +33,13 @@ function partialUpdate(req, res) {
     res.send(`Partial update of post ${req.params.id}`)
 }
 
-function destroy(req, res) {}
+function destroy(req, res) {
+    const postId = parseInt(req.params.id)
+    const post = posts.find(post => post.id === postId)
+
+    posts.splice(posts.indexOf(post), 1)
+
+    res.sendStatus(204)
+}
 
 module.exports = {index, show, store, update, partialUpdate, destroy}

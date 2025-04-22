@@ -19,13 +19,6 @@ router.put('/:id', postController.update)
 router.patch('/:id', postController.partialUpdate)
 
 // destroy
-router.delete('/:id', (req, res) => {
-    const postId = parseInt(req.params.id)
-    const post = posts.find(post => post.id === postId)
-
-    posts.splice(posts.indexOf(post), 1)
-
-    res.sendStatus(204)
-})
+router.delete('/:id', postController.destroy)
 
 module.exports = router
