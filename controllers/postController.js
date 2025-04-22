@@ -4,7 +4,22 @@ function index(req, res) {
     res.json(posts)
 }
 
-function show(req, res) {}
+function show(req, res) {
+    const postId = parseInt(req.params.id)
+
+    const post = posts.find(post => post.id === postId)
+
+    if (!post) {
+        res.status(404)
+
+        res.json({
+            error: 'Not Found',
+            message: 'Post not found'
+        })
+    }
+
+    res.json(post)
+}
 
 function store(req, res) {}
 
