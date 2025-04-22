@@ -26,4 +26,9 @@ router.get('/:id', (req, res) => {
     res.json(post)
 })
 
+// store
+router.post('/', (req, res) => {
+    res.send('Create new post')
+})
+
 module.exports = router
