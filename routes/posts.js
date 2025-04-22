@@ -1,12 +1,10 @@
 const express = require('express')
 const router = express.Router()
 
-const posts = require('../data/posts')
+const postController = require('../controllers/postController')
 
 // index
-router.get('/', (req, res) => {
-    res.json(posts)
-})
+router.get('/', postController.index)
 
 // show
 router.get('/:id', (req, res) => {
@@ -14,7 +12,7 @@ router.get('/:id', (req, res) => {
 
     const post = posts.find(post => post.id === postId)
 
-    if(!post){
+    if (!post) {
         res.status(404)
 
         res.json({
