@@ -21,7 +21,9 @@ function show(req, res) {
     res.json(post)
 }
 
-function store(req, res) {}
+function store(req, res) {
+    res.send('Create new post')
+}
 
 function update(req, res) {}
 
