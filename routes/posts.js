@@ -13,9 +13,7 @@ router.get('/:id', postController.show)
 router.post('/', postController.store)
 
 // update
-router.put('/:id', (req, res) => {
-    res.send(`Update post ${req.params.id}`)
-})
+router.put('/:id', postController.update)
 
 // partial update
 router.patch('/:id', (req, res) => {

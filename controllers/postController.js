@@ -25,7 +25,9 @@ function store(req, res) {
     res.send('Create new post')
 }
 
-function update(req, res) {}
+function update(req, res) {
+    res.send(`Update post ${req.params.id}`)
+}
 
 function partialUpdate(req, res) {}
 
