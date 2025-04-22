@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/simonelupone/express-blog-api-crud/issues"
   },
-  "homepage": "https://github.com/simonelupone/express-blog-api-crud#readme"
+  "homepage": "https://github.com/simonelupone/express-blog-api-crud#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
