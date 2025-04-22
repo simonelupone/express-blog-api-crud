@@ -36,4 +36,9 @@ router.put('/:id', (req, res) => {
     res.send(`Update post ${req.params.id}`)
 })
 
+// partial update
+router.patch('/:id', (req, res) => {
+    res.send(`Partial update of post ${req.params.id}`)
+})
+
 module.exports = router
