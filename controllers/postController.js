@@ -77,7 +77,37 @@ function update(req, res) {
 }
 
 function partialUpdate(req, res) {
-    res.send(`Partial update of post ${req.params.id}`)
+    const id = parseInt(req.params.id)
+
+    const post = posts.find(post => post.id === id)
+
+    if(!post){
+        res.status(404)
+
+        return res.json({
+            error: "Not Found",
+            message: "Post not found"
+        })
+    }
+
+    if(req.body.title){
+    post.title = req.body.title
+    }
+
+    if(req.body.content){
+        post.content = req.body.content
+    }
+
+    if(req.body.image){
+        post.image = req.body.image
+    }
+
+    if(req.body.tags){
+        post.tags = req.body.tags
+    }
+
+    console.log(posts)
+    res.json(post)
 }
 
 function destroy(req, res) {
