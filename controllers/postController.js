@@ -106,7 +106,7 @@ function partialUpdate(req, res) {
         post.tags = req.body.tags
     }
 
-    console.log(posts)
+    // console.log(posts)
     res.json(post)
 }
 
@@ -114,8 +114,17 @@ function destroy(req, res) {
     const postId = parseInt(req.params.id)
     const post = posts.find(post => post.id === postId)
 
+    if(!post){
+        res.status(404)
+
+        return res.json({
+            error: "Not Found",
+            message: "Post not found"
+        })
+    }
+
     posts.splice(posts.indexOf(post), 1)
-    console.log(posts)
+    // console.log(posts)
     res.sendStatus(204)
 }
 
