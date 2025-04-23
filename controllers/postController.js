@@ -5,7 +5,7 @@ function index(req, res) {
     let filteredPosts = posts
 
     // console.log(tag)
-    if(tag){
+    if (tag) {
         filteredPosts = posts.filter(post => post.tags.includes(tag))
     }
     res.json(filteredPosts)
@@ -29,7 +29,26 @@ function show(req, res) {
 }
 
 function store(req, res) {
-    res.send('Create new post')
+
+    const newId = posts[posts.length - 1].id + 1
+
+    console.log(req.body)
+
+    const { title, content, image, tags} = req.body
+
+    const newPost = {
+        id: newId,
+        title,
+        content,
+        image,
+        tags
+    }
+
+    posts.push(newPost)
+
+    res.status(201)
+
+    res.json(newPost)
 }
 
 function update(req, res) {
