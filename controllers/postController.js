@@ -19,7 +19,7 @@ function show(req, res) {
     if (!post) {
         res.status(404)
 
-        res.json({
+        return res.json({
             error: 'Not Found',
             message: 'Post not found'
         })
@@ -32,9 +32,9 @@ function store(req, res) {
 
     const newId = posts[posts.length - 1].id + 1
 
-    console.log(req.body)
+    // console.log(req.body)
 
-    const { title, content, image, tags} = req.body
+    const {title, content, image, tags} = req.body
 
     const newPost = {
         id: newId,
@@ -52,7 +52,28 @@ function store(req, res) {
 }
 
 function update(req, res) {
-    res.send(`Update post ${req.params.id}`)
+    const id = parseInt(req.params.id)
+
+    const post = posts.find(post => post.id === id)
+
+    if (!post) {
+        res.status(404)
+
+        return res.json({
+            error: "Not Found",
+            message: "Post not found"
+        })
+    }
+
+    post.title = req.body.title
+    post.content = req.body.content
+    post.image = req.body.image
+    post.tags = req.body.tags
+
+    // console.log('All posts: ', posts)
+    // console.log('Updated Post: ', post)
+
+    res.json(post)
 }
 
 function partialUpdate(req, res) {
