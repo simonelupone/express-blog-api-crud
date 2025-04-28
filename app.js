@@ -4,6 +4,10 @@ const port = 3000
 
 app.use(express.json())
 
+// global middleware
+const notFound = require('./middlewares/notFound')
+
+// importo il router
 const postsRouter = require('./routes/posts')
 app.use('/posts', postsRouter)
 
@@ -12,6 +16,8 @@ app.use(express.static('public'))
 app.get('/', (req, res) => {
     res.send('Homepage')
 })
+
+app.use(notFound)
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
